@@ -6,13 +6,13 @@ import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
-import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.CohortRepository;
 import com.schoolmanagement.data.repository.ProgramRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -43,8 +43,8 @@ public class CohortServiceImp {
         cohort.setCohortName(createCohortRequest.getCohortName());
         cohort.setDescription(createCohortRequest.getDescription());
         cohort.setNumberOfLearners(createCohortRequest.getNumberOfLearners());
-        cohort.setStartDate(LocalDateTime.now());
-        cohort.setEndDate(LocalDateTime.now().plusYears(1));
+        cohort.setStartDate(LocalDate.now());
+        cohort.setEndDate(LocalDate.now().plusYears(1));
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }

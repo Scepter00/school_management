@@ -3,6 +3,7 @@ package com.schoolmanagement.data.dto.request;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Setter
@@ -10,7 +11,7 @@ import java.time.LocalDateTime;
 public class CohortRequest {
     private String cohortName;
     private String description;
-    private LocalDateTime startDate;
-    private LocalDateTime endDate;
+    private LocalDate startDate;
+    private LocalDate endDate;
     private int numberOfLearners;
 }
