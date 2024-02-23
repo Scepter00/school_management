@@ -1,4 +1,4 @@
-package com.schoolmanagement.data.dto.reponse;
+package com.schoolmanagement.data.dto.request;
 
 import lombok.Getter;
 import lombok.Setter;

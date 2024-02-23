@@ -9,7 +9,9 @@ import java.time.LocalDateTime;
 @Getter
 public class LoginCohortResponse {
     private Long id;
-    private String cohortName;
+    private String cohort;
+    private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private int numberOfLearners;
 }
