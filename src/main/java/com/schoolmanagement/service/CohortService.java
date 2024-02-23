@@ -1,2 +1,8 @@
-package com.schoolmanagement.service;public class CohortService {
+package com.schoolmanagement.service;
+
+import com.schoolmanagement.data.models.Cohort;
+
+public interface CohortService {
+    Cohort createCohort (Cohort cohort);
+
 }

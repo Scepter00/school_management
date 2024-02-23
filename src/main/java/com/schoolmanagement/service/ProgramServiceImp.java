@@ -1,2 +1,7 @@
-package com.schoolmanagement.service;public class ProgramServiceImp {
+package com.schoolmanagement.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class ProgramServiceImp {
 }

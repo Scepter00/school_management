@@ -1,9 +1,6 @@
 package com.schoolmanagement.data.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @Getter
 @Entity
-public class CreateCohort {
+public class Cohort {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,4 +21,8 @@ public class CreateCohort {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    private int numberOfLearners;
+    private String cohortAvatar;
+    @OneToOne
+    private Program program;
 }
