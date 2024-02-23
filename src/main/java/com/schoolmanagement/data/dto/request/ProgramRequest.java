@@ -7,4 +7,5 @@ import lombok.Setter;
 @Getter
 public class ProgramRequest {
     private String programName;
+    private String description;
 }

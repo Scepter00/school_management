@@ -4,6 +4,8 @@ import com.schoolmanagement.data.dto.reponse.CohortResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.models.Cohort;
 import com.schoolmanagement.service.CohortServiceImp;
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,11 +16,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 
+@AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/school")
 public class CohortController {
 
-    @Autowired
     private CohortServiceImp cohortServiceImp;
 
     @PostMapping("/createCohort")
