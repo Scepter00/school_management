@@ -73,7 +73,7 @@ public class CohortServiceImp {
 
     private void createProgram(Cohort cohort) {
         Program program = new Program();
-        program.setName(cohort);
+        program.setProgramName(String.valueOf(cohort));
         programRepository.save(program);
     }
 }
