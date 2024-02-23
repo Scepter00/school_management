@@ -44,7 +44,7 @@ public class CohortServiceImp implements CohortService{
         cohort.setNumberOfLearners(createCohortRequest.getNumberOfLearners());
         cohort.setStartDate(LocalDate.now());
         cohort.setEndDate(LocalDate.now().plusYears(1));
-        cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
+        //cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }
