@@ -2,6 +2,7 @@ package com.schoolmanagement.service;
 
 import com.schoolmanagement.data.dto.reponse.CohortResponse;
 import com.schoolmanagement.data.dto.reponse.LoginCohortResponse;
+import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
@@ -71,9 +72,9 @@ public class CohortServiceImp {
         return "Successful";
     }
 
-    private void createProgram(Cohort cohort) {
-        Program program = new Program();
-        program.setProgramName(String.valueOf(cohort));
-        programRepository.save(program);
+    private void createCohort(ProgramResponse programResponse) {
+        Cohort cohort = new Cohort();
+        cohort.setProgram(programResponse);
+        cohortRepository.save(cohort);
     }
 }

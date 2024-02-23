@@ -23,6 +23,6 @@ public class Cohort {
     private LocalDateTime endDate;
     private int numberOfLearners;
     private String cohortAvatar;
-    @OneToOne
+    @ManyToOne
     private Program program;
 }
