@@ -35,14 +35,12 @@ class CohortServiceImpTest {
         when(cohortRepository.findByCohortName(anyString())).thenReturn(null);
         when(programRepository.findById(anyLong())).thenReturn(Optional.of(new Program()));
 
-
-        // Mock a Cohort object
         CohortRequest cohort = new CohortRequest();
         cohort.setProgramId(1L);
         cohort.setCohortName("Test Cohort");
         cohort.setDescription("Test Description");
-        cohort.setStartDate(LocalDate.of(2024, 2, 23)); // Example start date
-        cohort.setEndDate(LocalDate.of(2025, 2, 23)); // Example end date
+        cohort.setStartDate(LocalDate.of(2024, 2, 23));
+        cohort.setEndDate(LocalDate.of(2025, 2, 23));
         cohort.setNumberOfLearners(10);
 
         CohortResponse cohortResponse = cohortService.createCohort(cohort);
@@ -51,8 +49,8 @@ class CohortServiceImpTest {
         assertEquals(1L, cohortResponse.getId());
         assertEquals("Test Cohort", cohortResponse.getCohort());
         assertEquals("Test Description", cohortResponse.getDescription());
-        assertEquals(LocalDate.of(2024, 2, 23), cohortResponse.getStartDate()); // Example start date
-        assertEquals(LocalDate.of(2025, 2, 23), cohortResponse.getEndDate()); // Example end date
+        assertEquals(LocalDate.of(2024, 2, 23), cohortResponse.getStartDate());
+        assertEquals(LocalDate.of(2025, 2, 23), cohortResponse.getEndDate());
         assertEquals(10, cohortResponse.getNumberOfLearners());
     }
 

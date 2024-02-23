@@ -30,6 +30,8 @@ public class CohortServiceImp implements CohortService{
         cohortResponse.setStartDate(cohort.getStartDate());
         cohortResponse.setEndDate(cohort.getEndDate());
         cohortResponse.setNumberOfLearners(cohort.getNumberOfLearners());
+        cohortResponse.setProgramId(cohort.fin);
+        cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         return cohortResponse;
     }
 
@@ -44,7 +46,6 @@ public class CohortServiceImp implements CohortService{
         cohort.setNumberOfLearners(createCohortRequest.getNumberOfLearners());
         cohort.setStartDate(LocalDate.now());
         cohort.setEndDate(LocalDate.now().plusYears(1));
-        //cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }
