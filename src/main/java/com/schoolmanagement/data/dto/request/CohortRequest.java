@@ -14,4 +14,5 @@ public class CohortRequest {
     private LocalDate startDate;
     private LocalDate endDate;
     private int numberOfLearners;
+    private Long programId;
 }

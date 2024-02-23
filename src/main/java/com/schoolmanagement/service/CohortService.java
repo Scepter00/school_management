@@ -1,8 +1,10 @@
 package com.schoolmanagement.service;
 
-import com.schoolmanagement.data.models.Cohort;
+import com.schoolmanagement.data.dto.reponse.CohortResponse;
+import com.schoolmanagement.data.dto.request.CohortRequest;
 
 public interface CohortService {
-    Cohort createCohort (Cohort cohort);
+
+    CohortResponse createCohort(CohortRequest createCohortRequest);
 
 }

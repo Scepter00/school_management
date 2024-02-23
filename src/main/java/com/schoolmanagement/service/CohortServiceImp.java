@@ -2,7 +2,6 @@ package com.schoolmanagement.service;
 
 import com.schoolmanagement.data.dto.reponse.CohortResponse;
 import com.schoolmanagement.data.dto.reponse.LoginCohortResponse;
-import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
@@ -13,12 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class CohortServiceImp {
+public class CohortServiceImp implements CohortService{
 
     private final CohortRepository cohortRepository;
     private final ProgramRepository programRepository;
@@ -35,6 +33,7 @@ public class CohortServiceImp {
         return cohortResponse;
     }
 
+    @Override
     public CohortResponse createCohort(CohortRequest createCohortRequest) {
         if (cohortRepository.findByCohortName(createCohortRequest.getCohortName()) != null) {
             throw new RuntimeException("Username already exists");
@@ -45,6 +44,7 @@ public class CohortServiceImp {
         cohort.setNumberOfLearners(createCohortRequest.getNumberOfLearners());
         cohort.setStartDate(LocalDate.now());
         cohort.setEndDate(LocalDate.now().plusYears(1));
+        cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }
@@ -72,8 +72,4 @@ public class CohortServiceImp {
         return "Successful";
     }
 
-    private void createCohort(ProgramResponse ProgramResponse) {
-        Cohort cohort = new Cohort();
-        cohortRepository.save(cohort);
-    }
 }
