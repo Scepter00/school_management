@@ -2,10 +2,13 @@ package com.schoolmanagement.service;
 
 import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.ProgramRequest;
+import com.schoolmanagement.data.models.Cohort;
 import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.ProgramRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @AllArgsConstructor
 @Service
@@ -26,5 +29,9 @@ public class ProgramServiceImp {
         program.setDescription(programRequest.getDescription());
         Program saveProgram = programRepository.save(program);
         return createProgramResponse(saveProgram);
+    }
+
+    public List<Program> viewAllPrograms() {
+        return programRepository.findAll();
     }
 }
