@@ -2,7 +2,6 @@ package com.schoolmanagement.controller;
 
 import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.ProgramRequest;
-import com.schoolmanagement.data.models.Cohort;
 import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.service.ProgramServiceImp;
 import lombok.AllArgsConstructor;
@@ -24,7 +23,7 @@ public class ProgramController {
         return ResponseEntity.ok(createdResponse);
     }
 
-    @GetMapping("/viewAllCohort")
+    @GetMapping("/viewAllProgram")
     public ResponseEntity<List<Program>> viewAllPrograms() {
         return ResponseEntity.ok(programServiceImp.viewAllPrograms());
     }
