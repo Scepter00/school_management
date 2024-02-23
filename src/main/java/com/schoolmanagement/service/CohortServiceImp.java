@@ -72,9 +72,8 @@ public class CohortServiceImp {
         return "Successful";
     }
 
-    private void createCohort(ProgramResponse programResponse) {
+    private void createCohort(ProgramResponse ProgramResponse) {
         Cohort cohort = new Cohort();
-        cohort.setProgram(programResponse);
         cohortRepository.save(cohort);
     }
 }
