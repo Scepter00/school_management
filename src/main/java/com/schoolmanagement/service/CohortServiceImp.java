@@ -30,8 +30,8 @@ public class CohortServiceImp implements CohortService{
         cohortResponse.setStartDate(cohort.getStartDate());
         cohortResponse.setEndDate(cohort.getEndDate());
         cohortResponse.setNumberOfLearners(cohort.getNumberOfLearners());
-        cohortResponse.setProgramId(cohort.fin);
-        cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
+        //cohortResponse.setProgramId(cohort.fin);
+        //cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         return cohortResponse;
     }
 

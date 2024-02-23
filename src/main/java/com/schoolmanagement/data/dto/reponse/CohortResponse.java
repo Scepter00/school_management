@@ -13,5 +13,5 @@ public class CohortResponse {
     private LocalDate startDate;
     private LocalDate endDate;
     private int numberOfLearners;
-    private Long programId;
+    //private Long programId;
 }
