@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -21,6 +22,7 @@ public class CohortServiceImp implements CohortService {
     private final CohortRepository cohortRepository;
     private final ProgramRepository programRepository;
     private final CloudService cloudService;
+    private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     private CohortResponse createCohortResponse(Cohort cohort) {
         CohortResponse cohortResponse = new CohortResponse();
@@ -29,9 +31,6 @@ public class CohortServiceImp implements CohortService {
         cohortResponse.setDescription(cohort.getDescription());
         cohortResponse.setStartDate(cohort.getStartDate());
         cohortResponse.setEndDate(cohort.getEndDate());
-        cohortResponse.setNumberOfLearners(cohort.getNumberOfLearners());
-        //cohortResponse.setProgramId(cohort.fin);
-        //cohort.setProgram(programRepository.findById(createCohortRequest.getProgramId()).get());
         return cohortResponse;
     }
 
@@ -43,9 +42,10 @@ public class CohortServiceImp implements CohortService {
         Cohort cohort = new Cohort();
         cohort.setCohortName(createCohortRequest.getCohortName());
         cohort.setDescription(createCohortRequest.getDescription());
-        cohort.setNumberOfLearners(createCohortRequest.getNumberOfLearners());
-        cohort.setStartDate(LocalDate.now());
-        cohort.setEndDate(LocalDate.now().plusYears(1));
+        LocalDate startDate = LocalDate.parse(createCohortRequest.getStartDate(), dateFormatter);
+        cohort.setStartDate(startDate.toString());
+        LocalDate endDate = LocalDate.parse(createCohortRequest.getEndDate(), dateFormatter);
+        cohort.setEndDate(endDate.toString());
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }

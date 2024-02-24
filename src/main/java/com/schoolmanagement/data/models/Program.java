@@ -19,5 +19,4 @@ public class Program {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String programName;
-    private String description;
 }

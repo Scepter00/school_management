@@ -13,5 +13,4 @@ public class LoginCohortResponse {
     private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-    private int numberOfLearners;
 }

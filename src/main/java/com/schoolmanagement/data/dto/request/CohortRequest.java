@@ -10,7 +10,6 @@ import java.time.LocalDate;
 public class CohortRequest {
     private String cohortName;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private int numberOfLearners;
+    private String startDate;
+    private String endDate;
 }

@@ -19,7 +19,6 @@ public class ProgramServiceImp implements ProgramService{
         ProgramResponse programResponse = new ProgramResponse();
         programResponse.setId(program.getId());
         programResponse.setProgramName(program.getProgramName());
-        programResponse.setDescription(program.getDescription());
         return programResponse;
     }
 
@@ -27,7 +26,6 @@ public class ProgramServiceImp implements ProgramService{
     public ProgramResponse createProgram(ProgramRequest programRequest) {
         Program program = new Program();
         program.setProgramName(programRequest.getProgramName());
-        program.setDescription(programRequest.getDescription());
         Program saveProgram = programRepository.save(program);
         return createProgramResponse(saveProgram);
     }

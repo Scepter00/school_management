@@ -1,5 +1,6 @@
 package com.schoolmanagement.data.dto.reponse;
 
+import com.schoolmanagement.data.models.Program;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,6 @@ public class CohortResponse {
     private Long id;
     private String cohort;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private int numberOfLearners;
-    //private Long programId;
+    private String startDate;
+    private String endDate;
 }

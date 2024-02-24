@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -20,9 +19,8 @@ public class Cohort {
     private Long id;
     private String cohortName;
     private String description;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private int numberOfLearners;
+    private String startDate;
+    private String endDate;
     private String cohortAvatar;
     @ManyToOne
     private Program program;
