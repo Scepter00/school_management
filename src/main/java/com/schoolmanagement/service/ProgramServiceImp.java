@@ -12,7 +12,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @Service
-public class ProgramServiceImp {
+public class ProgramServiceImp implements ProgramService{
     private ProgramRepository programRepository;
 
     private ProgramResponse createProgramResponse(Program program) {
@@ -23,6 +23,7 @@ public class ProgramServiceImp {
         return programResponse;
     }
 
+    @Override
     public ProgramResponse createProgram(ProgramRequest programRequest) {
         Program program = new Program();
         program.setProgramName(programRequest.getProgramName());
