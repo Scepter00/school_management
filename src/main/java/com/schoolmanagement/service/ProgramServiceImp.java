@@ -32,6 +32,7 @@ public class ProgramServiceImp implements ProgramService{
         return createProgramResponse(saveProgram);
     }
 
+    @Override
     public List<Program> viewAllPrograms() {
         return programRepository.findAll();
     }

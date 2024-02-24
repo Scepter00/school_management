@@ -16,7 +16,7 @@ import java.util.List;
 
 @Service
 @AllArgsConstructor
-public class CohortServiceImp implements CohortService{
+public class CohortServiceImp implements CohortService {
 
     private final CohortRepository cohortRepository;
     private final ProgramRepository programRepository;
@@ -56,6 +56,7 @@ public class CohortServiceImp implements CohortService{
         return loginResponse;
     }
 
+    @Override
     public LoginCohortResponse loginCohort(LoginCohortRequest loginCohortRequest) {
         Cohort cohort = cohortRepository.findByCohortName(loginCohortRequest.getCohortName());
         if (cohort == null) {
@@ -64,6 +65,7 @@ public class CohortServiceImp implements CohortService{
         return createLoginCohortResponse(cohort);
     }
 
+    @Override
     public List<Cohort> viewAllCohorts() {
         return cohortRepository.findAll();
     }
