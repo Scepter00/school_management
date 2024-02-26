@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -14,5 +13,5 @@ public class CohortRequest {
     private String startDate;
     private String endDate;
     private String programName;
-    private MultipartFile cohortAvatar;
+    //private MultipartFile cohortAvatar;
 }

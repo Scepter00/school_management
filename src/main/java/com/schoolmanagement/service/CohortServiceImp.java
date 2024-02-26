@@ -65,7 +65,10 @@ public class CohortServiceImp implements CohortService {
                 cohort.setProgram(newProgram);
             }
         }
-       String cohortAvatarUrl = uploadProfileImage(createCohortRequest.getCohortAvatar(), 1L);
+       String cohortAvatarUrl = uploadProfileImage(
+               //createCohortRequest.getCohortAvatar()
+               null
+               , 1L);
         cohort.setCohortAvatar(cohortAvatarUrl);
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
@@ -93,7 +96,8 @@ public class CohortServiceImp implements CohortService {
 
     public String uploadProfileImage(MultipartFile file, Long cohortId) {
       //  cohortRepository.findById(cohortId).get().setCohortAvatar(
-         return   cloudService.uploadFile(file);
+        // return   cloudService.uploadFile(file);
+        return "";
     //);
        // return "Successful";
     }
