@@ -13,4 +13,5 @@ public class CohortResponse {
     private String description;
     private String startDate;
     private String endDate;
+    private String cohortAvatar;
 }

@@ -5,6 +5,8 @@ import com.schoolmanagement.data.dto.reponse.LoginCohortResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
+import com.schoolmanagement.data.models.EnumProgram;
+import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.CohortRepository;
 import com.schoolmanagement.data.repository.ProgramRepository;
 import lombok.AllArgsConstructor;
@@ -14,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
@@ -31,6 +34,7 @@ public class CohortServiceImp implements CohortService {
         cohortResponse.setDescription(cohort.getDescription());
         cohortResponse.setStartDate(cohort.getStartDate());
         cohortResponse.setEndDate(cohort.getEndDate());
+        cohortResponse.setCohortAvatar(cohort.getCohortAvatar());
         return cohortResponse;
     }
 
@@ -46,6 +50,23 @@ public class CohortServiceImp implements CohortService {
         cohort.setStartDate(startDate.toString());
         LocalDate endDate = LocalDate.parse(createCohortRequest.getEndDate(), dateFormatter);
         cohort.setEndDate(endDate.toString());
+
+        String program  = createCohortRequest.getProgramName();
+
+        List <String> programNames = programRepository.findAll()
+                .stream()
+                .map(Program::getProgramName)
+                .toList();
+        for (String programName : programNames) {
+            if (programName.equalsIgnoreCase(program)) {
+                Program newProgram = new Program();
+                newProgram.setProgramName(program.toUpperCase());
+
+                cohort.setProgram(newProgram);
+            }
+        }
+       String cohortAvatarUrl = uploadProfileImage(createCohortRequest.getCohortAvatar(), 1L);
+        cohort.setCohortAvatar(cohortAvatarUrl);
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }
@@ -71,8 +92,10 @@ public class CohortServiceImp implements CohortService {
     }
 
     public String uploadProfileImage(MultipartFile file, Long cohortId) {
-        cohortRepository.findById(cohortId).get().setCohortAvatar(cloudService.uploadFile(file));
-        return "Successful";
+      //  cohortRepository.findById(cohortId).get().setCohortAvatar(
+         return   cloudService.uploadFile(file);
+    //);
+       // return "Successful";
     }
 
 }

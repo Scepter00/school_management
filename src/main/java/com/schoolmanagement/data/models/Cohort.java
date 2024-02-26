@@ -24,4 +24,5 @@ public class Cohort {
     private String cohortAvatar;
     @ManyToOne
     private Program program;
+    private EnumProgram enumProgram;
 }

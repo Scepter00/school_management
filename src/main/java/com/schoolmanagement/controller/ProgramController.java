@@ -28,5 +28,14 @@ public class ProgramController {
     public ResponseEntity<List<Program>> viewAllPrograms() {
         return ResponseEntity.ok(programServiceImp.viewAllPrograms());
     }
+    @GetMapping("/viewAllProgramList")
+    public ResponseEntity<List<String>> viewAllProgramList() {
+        return ResponseEntity.ok(programServiceImp.viewAllProgramList());
+    }
+    @GetMapping("/viewAllEnumProgram")
+    public ResponseEntity<List<String>> viewAllEnumPrograms() {
+       // return ResponseEntity.ok(programServiceImp.viewAllPrograms());
+        return ResponseEntity.ok(programServiceImp.viewAllEnumPrograms());
+    }
 
 }

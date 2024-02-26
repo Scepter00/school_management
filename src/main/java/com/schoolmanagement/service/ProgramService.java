@@ -9,4 +9,8 @@ import java.util.List;
 public interface ProgramService {
     ProgramResponse createProgram (ProgramRequest programRequest);
     List<Program> viewAllPrograms();
+
+    List<String> viewAllEnumPrograms();
+
+    List<String> viewAllProgramList();
 }
