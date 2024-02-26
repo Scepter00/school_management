@@ -5,7 +5,6 @@ import com.schoolmanagement.data.dto.reponse.LoginCohortResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
-import com.schoolmanagement.data.models.EnumProgram;
 import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.CohortRepository;
 import com.schoolmanagement.data.repository.ProgramRepository;
@@ -32,8 +31,13 @@ public class CohortServiceImp implements CohortService {
         cohortResponse.setId(cohort.getId());
         cohortResponse.setCohort(cohort.getCohortName());
         cohortResponse.setDescription(cohort.getDescription());
-        cohortResponse.setStartDate(cohort.getStartDate());
-        cohortResponse.setEndDate(cohort.getEndDate());
+        LocalDate startDate = LocalDate.parse(cohort.getStartDate());
+        String formattedStartDate = startDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        cohortResponse.setStartDate(formattedStartDate);
+        LocalDate endDate = LocalDate.parse(cohort.getEndDate());
+        String formattedEndDate = endDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        cohortResponse.setEndDate(formattedEndDate);
+
         cohortResponse.setCohortAvatar(cohort.getCohortAvatar());
         return cohortResponse;
     }

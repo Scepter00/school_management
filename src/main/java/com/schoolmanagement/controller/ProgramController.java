@@ -2,7 +2,6 @@ package com.schoolmanagement.controller;
 
 import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.ProgramRequest;
-import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.service.ProgramServiceImp;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
