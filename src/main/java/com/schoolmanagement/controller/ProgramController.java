@@ -24,15 +24,15 @@ public class ProgramController {
         return ResponseEntity.ok(createdResponse);
     }
 
-    @GetMapping("/viewAllProgram")
-    public ResponseEntity<List<Program>> viewAllPrograms() {
-        return ResponseEntity.ok(programServiceImp.viewAllPrograms());
-    }
-    @GetMapping("/viewAllProgramList")
+    //@GetMapping("/viewAllProgram")
+//    public ResponseEntity<List<Program>> viewAllPrograms() {
+//        return ResponseEntity.ok(programServiceImp.viewAllPrograms());
+//    }
+    //@GetMapping("/viewAllProgramList")
     public ResponseEntity<List<String>> viewAllProgramList() {
         return ResponseEntity.ok(programServiceImp.viewAllProgramList());
     }
-    @GetMapping("/viewAllEnumProgram")
+    @GetMapping("/viewAllProgram")
     public ResponseEntity<List<String>> viewAllEnumPrograms() {
        // return ResponseEntity.ok(programServiceImp.viewAllPrograms());
         return ResponseEntity.ok(programServiceImp.viewAllEnumPrograms());
