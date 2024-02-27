@@ -20,6 +20,4 @@ public class CohortRequest {
     private String startDate;
     private String endDate;
     private String enumProgram;
-//    @JsonDeserialize(contentAs= MultipartFile.class)
-//    private MultipartFile cohortAvatar;
 }

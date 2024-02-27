@@ -13,5 +13,4 @@ public class CohortResponse {
     private String startDate;
     private String endDate;
     private EnumProgram enumProgram;
-    private String cohortAvatar;
 }

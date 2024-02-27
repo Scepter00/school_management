@@ -75,9 +75,10 @@ public class CohortServiceImp implements CohortService {
                 cohort.setProgram(newProgram);
             }
         }
-        ////String image = cloudService.uploadFile(createCohortRequest.getCohortAvatar());
-        ////log.info("image: {}, =======================", image);
-        ////cohort.setCohortAvatar(image);
+
+//        String image = cloudService.uploadFile(multipartFile);
+//        log.info("image: {}, =======================", image);
+//        cohort.setCohortAvatar(image);
 
 //        String cohortAvatarUrl = null;
 //        try {
