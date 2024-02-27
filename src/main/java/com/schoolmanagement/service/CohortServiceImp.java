@@ -5,20 +5,22 @@ import com.schoolmanagement.data.dto.reponse.LoginCohortResponse;
 import com.schoolmanagement.data.dto.request.CohortRequest;
 import com.schoolmanagement.data.dto.request.LoginCohortRequest;
 import com.schoolmanagement.data.models.Cohort;
+import com.schoolmanagement.data.models.EnumProgram;
 import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.CohortRepository;
 import com.schoolmanagement.data.repository.ProgramRepository;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CohortServiceImp implements CohortService {
 
     private final CohortRepository cohortRepository;
@@ -27,6 +29,7 @@ public class CohortServiceImp implements CohortService {
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     private CohortResponse createCohortResponse(Cohort cohort) {
+        EnumProgram enumProgram;
         CohortResponse cohortResponse = new CohortResponse();
         cohortResponse.setId(cohort.getId());
         cohortResponse.setCohort(cohort.getCohortName());
@@ -37,17 +40,18 @@ public class CohortServiceImp implements CohortService {
         LocalDate endDate = LocalDate.parse(cohort.getEndDate());
         String formattedEndDate = endDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         cohortResponse.setEndDate(formattedEndDate);
-
-        cohortResponse.setCohortAvatar(cohort.getCohortAvatar());
+        cohortResponse.setEnumProgram((cohort.getEnumProgram()));
+        //cohortResponse.setCohortAvatar(cohort.getCohortAvatar());
         return cohortResponse;
     }
 
     @Override
     public CohortResponse createCohort(CohortRequest createCohortRequest) {
         if (cohortRepository.findByCohortName(createCohortRequest.getCohortName()) != null) {
-            throw new RuntimeException("Username already exists");
+            throw new RuntimeException("Cohort already exists");
         }
         Cohort cohort = new Cohort();
+
         cohort.setCohortName(createCohortRequest.getCohortName());
         cohort.setDescription(createCohortRequest.getDescription());
         LocalDate startDate = LocalDate.parse(createCohortRequest.getStartDate(), dateFormatter);
@@ -55,10 +59,12 @@ public class CohortServiceImp implements CohortService {
         LocalDate endDate = LocalDate.parse(createCohortRequest.getEndDate(), dateFormatter);
         cohort.setEndDate(endDate.toString());
 
-        String program  = createCohortRequest.getProgramName();
+        cohort.setEnumProgram(EnumProgram.valueOf(createCohortRequest.getEnumProgram()));
+
+        String program  = createCohortRequest.getEnumProgram();
 
         List <String> programNames = programRepository.findAll()
-                .stream()
+               .stream()
                 .map(Program::getProgramName)
                 .toList();
         for (String programName : programNames) {
@@ -69,11 +75,20 @@ public class CohortServiceImp implements CohortService {
                 cohort.setProgram(newProgram);
             }
         }
-       String cohortAvatarUrl = uploadProfileImage(
-               //createCohortRequest.getCohortAvatar()
-               null
-               , 1L);
-        cohort.setCohortAvatar(cohortAvatarUrl);
+        ////String image = cloudService.uploadFile(createCohortRequest.getCohortAvatar());
+        ////log.info("image: {}, =======================", image);
+        ////cohort.setCohortAvatar(image);
+
+//        String cohortAvatarUrl = null;
+//        try {
+//            cohortAvatarUrl = uploadProfileImage(
+//                    //createCohortRequest.getCohortAvatar()
+//                    null
+//                    , 1L);
+//        }catch (Exception e) {
+//            System.out.println(e.getMessage());
+//        }
+
         Cohort saveCohort = cohortRepository.save(cohort);
         return createCohortResponse(saveCohort);
     }
@@ -100,8 +115,8 @@ public class CohortServiceImp implements CohortService {
 
     public String uploadProfileImage(MultipartFile file, Long cohortId) {
       //  cohortRepository.findById(cohortId).get().setCohortAvatar(
-        // return   cloudService.uploadFile(file);
-        return "";
+         return   cloudService.uploadFile(file);
+        //return "";
     //);
        // return "Successful";
     }
