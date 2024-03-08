@@ -19,5 +19,5 @@ public class CohortRequest {
     private String description;
     private String startDate;
     private String endDate;
-    private String enumProgram;
+    private EnumProgram enumProgram;
 }

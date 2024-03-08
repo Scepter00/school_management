@@ -58,10 +58,12 @@ public class CohortServiceImp implements CohortService {
         cohort.setStartDate(startDate.toString());
         LocalDate endDate = LocalDate.parse(createCohortRequest.getEndDate(), dateFormatter);
         cohort.setEndDate(endDate.toString());
+        cohort.setEnumProgram(createCohortRequest.getEnumProgram());
 
-        cohort.setEnumProgram(EnumProgram.valueOf(createCohortRequest.getEnumProgram()));
-
-        String program  = createCohortRequest.getEnumProgram();
+        String program  = String.valueOf(createCohortRequest.getEnumProgram());
+        if (program == null) {
+            throw new IllegalArgumentException("Enum is null");
+        }
 
         List <String> programNames = programRepository.findAll()
                .stream()
