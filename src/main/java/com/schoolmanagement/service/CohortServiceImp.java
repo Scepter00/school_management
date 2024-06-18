@@ -60,7 +60,6 @@ public class CohortServiceImp implements CohortService {
         cohort.setEndDate(endDate.toString());
         cohort.setEnumProgram(createCohortRequest.getEnumProgram());
 
-
         String program  = String.valueOf(createCohortRequest.getEnumProgram());
 
         List <String> programNames = programRepository.findAll()
@@ -104,7 +103,7 @@ public class CohortServiceImp implements CohortService {
     public LoginCohortResponse loginCohort(LoginCohortRequest loginCohortRequest) {
         Cohort cohort = cohortRepository.findByCohortName(loginCohortRequest.getCohortName());
         if (cohort == null) {
-            throw new RuntimeException("User not found");
+            throw new RuntimeException("Cohort not found");
         }
         return createLoginCohortResponse(cohort);
     }
@@ -113,7 +112,6 @@ public class CohortServiceImp implements CohortService {
     public List<Cohort> viewAllCohorts() {
         return cohortRepository.findAll();
     }
-
     public String uploadProfileImage(MultipartFile file, Long cohortId) {
       //  cohortRepository.findById(cohortId).get().setCohortAvatar(
          return   cloudService.uploadFile(file);
