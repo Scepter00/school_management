@@ -116,7 +116,6 @@ public class CohortServiceImp implements CohortService {
 
 
 
-
     public String uploadProfileImage(MultipartFile file, Long cohortId) {
       //  cohortRepository.findById(cohortId).get().setCohortAvatar(
          return   cloudService.uploadFile(file);
