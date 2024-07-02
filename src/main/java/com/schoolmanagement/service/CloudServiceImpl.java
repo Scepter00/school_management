@@ -18,7 +18,6 @@ public class CloudServiceImpl implements CloudService {
 
 
 
-
     @Override
     public String uploadFile(MultipartFile file) {
         try {
