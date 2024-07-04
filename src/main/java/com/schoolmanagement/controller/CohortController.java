@@ -23,7 +23,6 @@ import java.util.List;
 public class CohortController {
 
 
-
     private CohortServiceImp cohortServiceImp;
 
     @PostMapping("/createCohort")
