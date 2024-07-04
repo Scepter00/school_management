@@ -22,6 +22,12 @@ import java.util.List;
 @RequestMapping("/api/v1/school")
 public class CohortController {
 
+
+
+
+
+
+
     private CohortServiceImp cohortServiceImp;
 
     @PostMapping("/createCohort")
