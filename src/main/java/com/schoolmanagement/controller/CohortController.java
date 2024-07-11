@@ -17,7 +17,6 @@ import java.util.List;
 
 
 
-
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/v1/school")
