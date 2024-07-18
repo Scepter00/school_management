@@ -7,7 +7,6 @@ public interface CloudService {
 
 
 
-
     String uploadFile(MultipartFile file);
 
 }
