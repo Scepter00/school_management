@@ -36,6 +36,7 @@ public class CohortController {
     @PostMapping(value = "/upload-image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<String> uploadProfilePicture(@RequestParam(value = "file") MultipartFile file, @RequestParam  Long cohortId) {
         try {
+
             String response = cohortServiceImp.uploadProfileImage(file, cohortId);
             return new ResponseEntity<>(response, HttpStatus.OK);
         }catch (Exception exception){
