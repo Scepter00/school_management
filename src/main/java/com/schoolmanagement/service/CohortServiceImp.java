@@ -30,7 +30,6 @@ public class CohortServiceImp implements CohortService {
 
     private CohortResponse createCohortResponse(Cohort cohort) {
         EnumProgram enumProgram;
-
         CohortResponse cohortResponse = new CohortResponse();
         cohortResponse.setId(cohort.getId());
         cohortResponse.setCohort(cohort.getCohortName());
