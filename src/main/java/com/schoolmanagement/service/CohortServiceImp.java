@@ -26,7 +26,6 @@ public class CohortServiceImp implements CohortService {
     private final CohortRepository cohortRepository;
     private final ProgramRepository programRepository;
     private final CloudService cloudService;
-
     private static final DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
 
     private CohortResponse createCohortResponse(Cohort cohort) {
