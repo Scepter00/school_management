@@ -27,6 +27,7 @@ public class CohortController {
         return ResponseEntity.ok(createdResponse);
     }
 
+
     @GetMapping("/viewAllCohort")
     public ResponseEntity<List<Cohort>> viewAllCohort() {
         return ResponseEntity.ok(cohortServiceImp.viewAllCohorts());
