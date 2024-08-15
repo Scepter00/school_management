@@ -21,6 +21,7 @@ public class CohortController {
 
     private CohortServiceImp cohortServiceImp;
 
+
     @PostMapping("/createCohort")
     public ResponseEntity<CohortResponse> createCohort(@RequestBody CohortRequest cohortRequest) {
         CohortResponse createdResponse = cohortServiceImp.createCohort(cohortRequest);
