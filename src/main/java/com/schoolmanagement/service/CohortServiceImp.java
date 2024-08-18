@@ -36,7 +36,6 @@ public class CohortServiceImp implements CohortService {
         cohortResponse.setCohort(cohort.getCohortName());
         cohortResponse.setDescription(cohort.getDescription());
         LocalDate startDate = LocalDate.parse(cohort.getStartDate());
-
         String formattedStartDate = startDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         cohortResponse.setStartDate(formattedStartDate);
         LocalDate endDate = LocalDate.parse(cohort.getEndDate());
