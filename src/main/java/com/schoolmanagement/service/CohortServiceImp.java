@@ -39,6 +39,7 @@ public class CohortServiceImp implements CohortService {
         String formattedStartDate = startDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         cohortResponse.setStartDate(formattedStartDate);
         LocalDate endDate = LocalDate.parse(cohort.getEndDate());
+
         String formattedEndDate = endDate.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"));
         cohortResponse.setEndDate(formattedEndDate);
         cohortResponse.setEnumProgram((cohort.getEnumProgram()));
