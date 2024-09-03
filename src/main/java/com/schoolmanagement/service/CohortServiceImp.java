@@ -44,7 +44,6 @@ public class CohortServiceImp implements CohortService {
         cohortResponse.setEndDate(formattedEndDate);
         cohortResponse.setEnumProgram((cohort.getEnumProgram()));
         //cohortResponse.setCohortAvatar(cohort.getCohortAvatar());
-
         return cohortResponse;
     }
 
