@@ -47,7 +47,6 @@ public class CohortServiceImp implements CohortService {
         return cohortResponse;
     }
 
-
     @Override
     public CohortResponse createCohort(CohortRequest createCohortRequest) {
         if (cohortRepository.findByCohortName(createCohortRequest.getCohortName()) != null) {
