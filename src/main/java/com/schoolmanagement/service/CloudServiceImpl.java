@@ -25,7 +25,7 @@ public class CloudServiceImpl implements CloudService {
                     );
             return response.get("url").toString();
         } catch (IOException ex) {
-            throw new RuntimeException();
+            throw new IllegalArgumentException(ex.getMessage());
         }
     }
 }
