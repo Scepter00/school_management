@@ -11,7 +11,6 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class CloudServiceImpl implements CloudService {
-
     private final Cloudinary cloudinary;
 
     @Override
