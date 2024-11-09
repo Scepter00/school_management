@@ -14,7 +14,6 @@ import java.time.LocalDate;
 @Getter
 @Entity
 public class Cohort {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
