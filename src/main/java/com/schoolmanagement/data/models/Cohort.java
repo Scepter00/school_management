@@ -11,7 +11,6 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Setter
-
 @Getter
 @Entity
 public class Cohort {
