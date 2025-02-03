@@ -21,7 +21,6 @@ public class CloudServiceImpl implements CloudService {
                     .upload(
                             file.getBytes(),
                             ObjectUtils.emptyMap()
-
                     );
             return response.get("url").toString();
         } catch (IOException ex) {
