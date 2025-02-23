@@ -72,6 +72,7 @@ public class CohortServiceImp implements CohortService {
                 Program newProgram = new Program();
                 newProgram.setProgramName(program.toUpperCase());
 
+
                 cohort.setProgram(newProgram);
             }
         }
