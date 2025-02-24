@@ -51,7 +51,6 @@ public class CohortServiceImp implements CohortService {
         if (cohortRepository.findByCohortName(createCohortRequest.getCohortName()) != null) {
             throw new RuntimeException("Cohort already exists");
         }
-
         Cohort cohort = new Cohort();
 
         cohort.setCohortName(createCohortRequest.getCohortName());
