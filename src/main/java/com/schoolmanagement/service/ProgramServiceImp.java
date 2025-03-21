@@ -2,7 +2,6 @@ package com.schoolmanagement.service;
 
 import com.schoolmanagement.data.dto.reponse.ProgramResponse;
 import com.schoolmanagement.data.dto.request.ProgramRequest;
-import com.schoolmanagement.data.models.Cohort;
 import com.schoolmanagement.data.models.EnumProgram;
 import com.schoolmanagement.data.models.Program;
 import com.schoolmanagement.data.repository.ProgramRepository;
