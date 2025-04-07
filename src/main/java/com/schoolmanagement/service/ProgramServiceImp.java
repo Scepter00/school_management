@@ -37,7 +37,6 @@ public class ProgramServiceImp implements ProgramService{
         return programRepository.findAll();
     }
 
-    
     @Override
     public List<String> viewAllEnumPrograms() {
        return Arrays.stream(EnumProgram.values())
