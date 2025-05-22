@@ -64,7 +64,6 @@ public class CohortServiceImp implements CohortService {
         String program  = String.valueOf(createCohortRequest.getEnumProgram());
 
 
-
         List <String> programNames = programRepository.findAll()
                .stream()
                 .map(Program::getProgramName)
