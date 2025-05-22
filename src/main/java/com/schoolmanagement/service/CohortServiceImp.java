@@ -65,7 +65,6 @@ public class CohortServiceImp implements CohortService {
 
 
 
-
         List <String> programNames = programRepository.findAll()
                .stream()
                 .map(Program::getProgramName)
