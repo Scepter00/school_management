@@ -53,7 +53,6 @@ public class CohortServiceImp implements CohortService {
         }
         Cohort cohort = new Cohort();
 
-
         cohort.setCohortName(createCohortRequest.getCohortName());
         cohort.setDescription(createCohortRequest.getDescription());
         LocalDate startDate = LocalDate.parse(createCohortRequest.getStartDate(), dateFormatter);
