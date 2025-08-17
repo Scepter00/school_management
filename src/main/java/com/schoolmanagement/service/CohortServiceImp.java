@@ -61,7 +61,6 @@ public class CohortServiceImp implements CohortService {
         cohort.setEndDate(endDate.toString());
         cohort.setEnumProgram(createCohortRequest.getEnumProgram());
 
-
         String program  = String.valueOf(createCohortRequest.getEnumProgram());
 
         List <String> programNames = programRepository.findAll()
