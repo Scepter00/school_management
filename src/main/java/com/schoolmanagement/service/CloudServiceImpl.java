@@ -27,7 +27,6 @@ public class CloudServiceImpl implements CloudService {
         } catch (IOException ex) {
 
 
-
             throw new IllegalArgumentException(ex.getMessage());
         }
     }
