@@ -23,7 +23,6 @@ public class CloudServiceImpl implements CloudService {
                             file.getBytes(),
                             ObjectUtils.emptyMap()
                     );
-            
             return response.get("url").toString();
         } catch (IOException ex) {
             throw new IllegalArgumentException(ex.getMessage());
