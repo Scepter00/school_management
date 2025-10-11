@@ -18,6 +18,7 @@ public class CloudServiceImpl implements CloudService {
     @Override
     public String uploadFile(MultipartFile file) {
         try {
+
             final Map<?, ?> response = cloudinary.uploader()
                     .upload(
                             file.getBytes(),
