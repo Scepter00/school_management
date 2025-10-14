@@ -19,7 +19,6 @@ public class CloudServiceImpl implements CloudService {
     public String uploadFile(MultipartFile file) {
         try {
 
-
             final Map<?, ?> response = cloudinary.uploader()
                     .upload(
                             file.getBytes(),
