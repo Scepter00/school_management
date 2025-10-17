@@ -22,6 +22,7 @@ public class CloudServiceImpl implements CloudService {
                     .upload(
 
 
+
                             file.getBytes(),
                             ObjectUtils.emptyMap()
                     );
