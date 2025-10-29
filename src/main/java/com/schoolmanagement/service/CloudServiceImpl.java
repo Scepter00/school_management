@@ -21,8 +21,6 @@ public class CloudServiceImpl implements CloudService {
             final Map<?, ?> response = cloudinary.uploader()
                     .upload(
                             file.getBytes(),
-
-
                             ObjectUtils.emptyMap()
                     );
 
