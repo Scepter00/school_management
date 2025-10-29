@@ -23,6 +23,7 @@ public class CloudServiceImpl implements CloudService {
                             file.getBytes(),
 
 
+
                             ObjectUtils.emptyMap()
                     );
 
